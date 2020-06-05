@@ -1,16 +1,10 @@
 import Knex from 'knex';
 
 export async function up(knex: Knex) {
-  return knex.schema.createTable('point', point => {
+  return knex.schema.createTable('pointItem', point => {
     point.increments('id').primary();
-    point.string('image').notNullable();
-    point.string('name').notNullable();
-    point.string('email').notNullable();
-    point.string('whastsapp').notNullable();
-    point.decimal('latitude').notNullable();
-    point.decimal('longitude').notNullable();
-    point.string('city').notNullable();
-    point.string('uf', 2).notNullable();
+    point.integer('idPoint').notNullable().references('id').inTable('point');
+    point.integer('idItem').notNullable().references('id').inTable('item');
   });
 }
 

@@ -4,7 +4,8 @@
   "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --no-notify src/server.ts"
+    "dev": "ts-node-dev --no-notify src/server.ts",
+    "db:migrate": "knex migrate:latest --knexfile knexfile.ts migrate:latest"
   },
   "dependencies": {
     "express": "^4.17.1",
