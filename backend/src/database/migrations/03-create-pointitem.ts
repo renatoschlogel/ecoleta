@@ -1,6 +1,6 @@
 import Knex from 'knex';
 
-export async function up(knex: Knex) {
+export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('pointItem', point => {
     point.increments('id').primary();
     point.integer('idPoint').notNullable().references('id').inTable('point');
@@ -8,6 +8,6 @@ export async function up(knex: Knex) {
   });
 }
 
-export async function down(knex: Knex) {
-  return knex.schema.dropTable('point');
+export async function down(knex: Knex): Promise<void> {
+  return knex.schema.dropTable('pointItem');
 }
